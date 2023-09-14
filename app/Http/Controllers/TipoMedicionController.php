@@ -12,7 +12,8 @@ class TipoMedicionController extends Controller
      */
     public function index()
     {
-        //
+        $items = TipoMedicion::paginate(5);
+        return view('tipomedicion.index', compact('items'));
     }
 
     /**
@@ -20,7 +21,7 @@ class TipoMedicionController extends Controller
      */
     public function create()
     {
-        //
+        return view('tipomedicion.create');
     }
 
     /**
@@ -28,7 +29,8 @@ class TipoMedicionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        TipoMedicion::create($request->all());
+        return redirect(route('tipo-mediciones.index'))->with('status', 'Tipo de medición creado!');
     }
 
     /**
@@ -44,7 +46,7 @@ class TipoMedicionController extends Controller
      */
     public function edit(TipoMedicion $tipoMedicion)
     {
-        //
+        return view('tipomedicion.edit', ['item' => $tipoMedicion]);
     }
 
     /**
@@ -52,7 +54,8 @@ class TipoMedicionController extends Controller
      */
     public function update(Request $request, TipoMedicion $tipoMedicion)
     {
-        //
+        $tipoMedicion->update($request->all());
+        return redirect(route('tipo-mediciones.index'))->with('status', 'Tipo de medición actualizado!');
     }
 
     /**
@@ -60,6 +63,7 @@ class TipoMedicionController extends Controller
      */
     public function destroy(TipoMedicion $tipoMedicion)
     {
-        //
+        $tipoMedicion->delete();
+        return redirect(route('tipo-mediciones.index'))->with('status', 'Tipo de medición eliminado!');
     }
 }

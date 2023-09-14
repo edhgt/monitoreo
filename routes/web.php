@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes(['register' => true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::resource('dispositivos', App\Http\Controllers\DispositivoController::class);
 Route::resource('tipo-mediciones', App\Http\Controllers\TipoMedicionController::class)
 ->parameters(['tipo-mediciones' => 'tipoMedicion']);

@@ -12,7 +12,8 @@ class DispositivoController extends Controller
      */
     public function index()
     {
-        //
+        $dispositivos = Dispositivo::paginate(5);
+        return view('dispositivos.index', compact('dispositivos'));
     }
 
     /**
@@ -20,7 +21,7 @@ class DispositivoController extends Controller
      */
     public function create()
     {
-        //
+        return view('dispositivos.create');
     }
 
     /**
@@ -28,7 +29,8 @@ class DispositivoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Dispositivo::create($request->all());
+        return redirect(route('dispositivos.index'))->with('status', 'Dispositivo creado!');
     }
 
     /**
@@ -44,7 +46,7 @@ class DispositivoController extends Controller
      */
     public function edit(Dispositivo $dispositivo)
     {
-        //
+        return view('dispositivos.edit', compact('dispositivo'));
     }
 
     /**
@@ -52,7 +54,8 @@ class DispositivoController extends Controller
      */
     public function update(Request $request, Dispositivo $dispositivo)
     {
-        //
+        $dispositivo->update($request->all());
+        return redirect(route('dispositivos.index'))->with('status', 'Dispositivo actualizado!');
     }
 
     /**
@@ -60,6 +63,7 @@ class DispositivoController extends Controller
      */
     public function destroy(Dispositivo $dispositivo)
     {
-        //
+        $dispositivo->delete();
+        return redirect(route('dispositivos.index'))->with('status', 'Dispositivo eliminado!');
     }
 }
