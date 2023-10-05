@@ -59,7 +59,12 @@
       html,
       body {
         height: 100%;
-        background-color: #333;
+        background: url("img/logo2.jpeg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        width: 100%;
       }
 
       body {
@@ -135,7 +140,7 @@
       }
     </style>
   </head>
-  <body class="text-center">
+  <body class="text-center" style="background: url('public/img/logo2.jpeg');background-position: center center;background-repeat: no-repeat;background-size: cover;height: 100vh;width: 100%;">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header class="masthead mb-auto">
         <div class="inner">
@@ -157,9 +162,7 @@
       <main role="main" class="inner cover">
         <h1 class="cover-heading">{{ config('app.name') }}.</h1>
         <p class="lead">
-          Cover is a one-page template for building simple and beautiful home
-          pages. Download, edit the text, and add your own fullscreen background
-          photo to make it your own.
+          
         </p>
       </main>
 
