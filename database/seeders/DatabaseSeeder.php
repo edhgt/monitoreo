@@ -14,12 +14,17 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $user = \App\Models\User::factory()->create([
+            'name' => 'Super Admin User',
+            'email' => 'admin@' . env('APP_DOMAIN'),
+        ]);
+
         $this->call([
             TipoMedicionSeeder::class,
+            RoleSeeder::class,
         ]);
+
+        $role = \Spatie\Permission\Models\Role::where('name', 'Super Admin')->first();
+        $user->assignRole($role);
     }
 }

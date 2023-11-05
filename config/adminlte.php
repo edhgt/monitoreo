@@ -297,19 +297,39 @@ return [
 
         // Sidebar items:
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text'        => 'Home',
+            'url'         => 'home',
+            'icon'        => 'fas fa-fw fa-home',
         ],
         [
             'text'        => 'Dispositivos',
             'url'         => 'dispositivos',
             'icon'        => 'fas fa-fw fa-tablet',
+            'can'  => 'Super Admin',
         ],
         [
             'text'        => 'Tipo de mediciones',
             'url'         => 'tipo-mediciones',
             'icon'        => 'far fa-fw fa-file',
+            'can'  => 'Super Admin',
+        ],
+        [
+            'text' => 'Usuarios',
+            'url'  => 'admin/users',
+            'can'  => 'Super Admin',
+            'icon' => 'fa fa-fw fa-users',
+        ],
+        [
+            'text' => 'Roles',
+            'url'  => 'admin/roles',
+            'can'  => 'Super Admin',
+            'icon' => 'fa fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Dashboards',
+            'url'  => 'admin/dashboards',
+            'can'  => 'Super Admin',
+            'icon' => 'fa fa-fw fa-tachometer-alt',
         ],
     ],
 

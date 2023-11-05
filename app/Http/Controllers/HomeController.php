@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//use App\Charts\HomeChart;
+use App\Models\Dashboard;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $dashboards = Dashboard::all();
+        //return view('home', ['chart' => $chart->build()]);
+        return view('home', compact('dashboards'));
     }
 }
