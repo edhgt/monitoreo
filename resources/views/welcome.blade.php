@@ -62,15 +62,15 @@
         background: url("img/logo2.jpeg");
         background-position: center center;
         background-repeat: no-repeat;
-        background-size: cover;
-        height: 100vh;
+        background-size: contain;
+        min-height: 100vh;
         width: 100%;
       }
 
       body {
         display: -ms-flexbox;
         display: flex;
-        color: #fff;
+        color: #fff
         text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
         box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
       }
